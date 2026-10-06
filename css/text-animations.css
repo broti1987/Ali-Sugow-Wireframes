@@ -1,0 +1,30 @@
+/* Ali & Sugow — text animation styles
+   .slot / .reel-ch  link hover roll        (js/text-animations/slot-hover.js)
+   .roller / .rl     hero rolling line      (js/text-animations/hero-rolling-line.js)
+   .big / .bl        footer firm name       (js/text-animations/footer-name.js)
+   .expertise        fold 2 list reveal     (js/text-animations/expertise-reveal.js) */
+.slot{display:inline-flex;height:1em;line-height:1;overflow:hidden;vertical-align:top}
+.slot .reel-ch{display:block;position:relative;height:1em;transition:transform .62s cubic-bezier(.55,0,.25,1.18);transition-delay:calc(var(--i) * 24ms)}
+.slot .reel-ch > span{display:block;height:1em;line-height:1;white-space:pre}
+.slot .reel-ch > span:nth-child(2){position:absolute;left:0;top:1em;opacity:.45}
+.slot .reel-ch > span:nth-child(3){position:absolute;left:0;top:2em}
+a:hover > .slot .reel-ch,a:focus-visible > .slot .reel-ch,
+.sec-btn:hover .slot .reel-ch,.sec-btn:focus-visible .slot .reel-ch{transform:translateY(-2em)}
+.hero-line .l1{color:var(--text-primary);white-space:nowrap}
+.hero-line .l1{text-transform:capitalize}
+.roller{position:relative;height:1.2em;overflow-x:visible;overflow-y:clip;color:var(--text-secondary)}
+.roller > span{position:absolute;left:0;top:0;white-space:nowrap}
+.roller .rl{display:inline-block;white-space:pre;transform:translateY(115%);transition:transform .62s cubic-bezier(.65,0,.35,1);transition-delay:calc(var(--i) * 16ms)}
+.roller > span.is-on .rl{transform:translateY(0)}
+.roller > span.is-out .rl{transform:translateY(-115%)}
+.roller > span.snap .rl{transition:none}
+.big{font-weight:600;font-size:85px;letter-spacing:.01em;text-transform:uppercase;line-height:1.1;white-space:nowrap;width:100%;overflow-x:visible;overflow-y:clip;padding-bottom:.04em}
+.big > span{display:inline-block;transform-origin:left center}
+.big .bl{display:inline-block;white-space:pre;will-change:transform,opacity}
+@media (prefers-reduced-motion:reduce){ .slot .reel-ch{transition:none} }
+@media (prefers-reduced-motion:reduce){ .roller .rl{transition:none} }
+/* expertise list: items slide up into place one by one as fold 2 lands (js: expertise-reveal) */
+.expertise li{overflow:hidden}
+.expertise a{transform:translateY(110%);transition:transform .7s cubic-bezier(.65,0,.35,1) var(--d,0s),color .2s ease}
+.expertise.is-in a{transform:none}
+@media (prefers-reduced-motion:reduce){ .expertise a{transform:none;transition:color .2s ease} }
