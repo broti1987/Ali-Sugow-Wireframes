@@ -18,6 +18,7 @@ js/animations/
   hero-canvas.js                   scroll-driven canvas behind folds 1–2 (strands → dot → burst), cursor ripple,
                                    fold 1 copy sliding out left
   our-work-reels.js                dark ground transition + matters turning inside the pill as a smooth twisting cuboid (WebGL, CSS-strip fallback) + rolling year
+  people-reveal.js                 People portraits slide up as the row enters the screen
   header.js                        header states: logotype after top fold, dark over Our Work, hides at footer
   testimonial-line.js              testimonial cycle + leading line to the client tile
   floating-button.js               "Start a conversation" button that follows the cursor + its leading line
