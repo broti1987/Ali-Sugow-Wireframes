@@ -1,19 +1,23 @@
-# Ali & Sugow — homepage prototype
+# Ali & Sugow — website prototype
 
-Open `index.html` in a browser. No build step, no dependencies (Figtree loads from Google Fonts).
+Open `index.html` (homepage) or `about.html` (About Us) in a browser. No build step, no dependencies
+(Figtree loads from Google Fonts).
 
 ## Files
 
 ```
-index.html                         markup
-css/styles.css                     layout, type, sections
-css/text-animations.css            styles for the three text animations
+index.html                         homepage markup
+about.html                         About Us markup
+css/styles.css                     layout, type, sections (shared: header, get in touch, footer)
+css/about.css                      About Us page layout
+css/text-animations.css            styles for the text animations
 js/core.js                         shared helpers (window.AS), placeholder links, phone menu — load first
 js/text-animations/
   slot-hover.js                    letter-roll hover on menu, footer, expertise and "View all case studies" links
   hero-rolling-line.js             fold 1 line 2 — phrases swap letter by letter
   footer-name.js                   footer firm name — fitted to the card width, letters slide up on arrival
   expertise-reveal.js              fold 2 practice areas slide up one by one as the fold lands
+  about-copy.js                    About: each fold's copy fades fold to fold, scrubbed by scroll
 js/animations/
   hero-canvas.js                   scroll-driven canvas behind folds 1–2 (strands → dot → burst), cursor ripple,
                                    fold 1 copy sliding out left
@@ -22,10 +26,16 @@ js/animations/
   header.js                        header states: logotype after top fold, dark over Our Work, hides at footer
   testimonial-line.js              testimonial cycle + leading line to the client tile
   floating-button.js               "Start a conversation" button that follows the cursor + its leading line
+  about-canvas.js                  About: one pinned canvas across five folds — reverse prism (three curves in,
+                                   one waved line out, straight cursor-led centre line) → line reels into a knot →
+                                   six layered triangles with a dot → seven turning triangles → broken
+                                   construction lines → logomark outline; cursor ripple throughout
+  about-geometry.js                About: shape data for about-canvas.js (Figma frame space, generated)
 ```
 
 Each JS file is a self-contained IIFE and can be removed or replaced on its own. Tuning values
-(durations, distances, ripple size) sit as named variables at the top of each file.
+(durations, distances, ripple size) sit as named variables at the top of each file. The About
+scroll timeline (how long each fold holds and each turn takes) is the `SEG` list in about-canvas.js.
 
 ## Notes for build
 

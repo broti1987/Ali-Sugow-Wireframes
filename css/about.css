@@ -1,0 +1,39 @@
+/* Ali & Sugow — About Us page (Figma "About Us – Desktop", 30:565).
+   Shares css/styles.css (header, get in touch, footer) and css/text-animations.css (line reveal). */
+
+/* ---------- hero: five folds over one pinned canvas ---------- */
+/* folds 3–4 sit on a dark ground painted by the canvas; about-canvas.js sets --ab-fg / --ab-fg2 (copy colour) to match */
+/* scroll length = stage + the timeline in about-canvas.js (it sets --ab-total) */
+.ab-hero{position:relative;height:calc(100svh * (1 + var(--ab-total, 5.45)))}
+.ab-stick{position:sticky;top:0;height:100svh;min-height:640px;overflow:hidden}
+.ab-stick canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.ab-copy{position:absolute;pointer-events:none;will-change:opacity,translate}
+.ab-copy-part{will-change:opacity,translate}   /* a paragraph that arrives later than the rest of its fold */
+
+/* type (Figma text styles) */
+.ab-h1{font-weight:600;font-size:40px;line-height:1.4;letter-spacing:-1px;text-transform:capitalize;color:var(--ab-fg,var(--text-primary))}
+.ab-h3{font-weight:600;font-size:32px;line-height:40px;letter-spacing:-.5px;color:var(--ab-fg,var(--text-primary))}
+.ab-body{font-size:16px;line-height:24px;color:var(--ab-fg2,var(--text-secondary));max-width:360px}
+.ab-over{color:var(--text-tertiary)}
+
+/* fold 1: statement left (vertically centred), network line bottom right */
+.ab-f1{inset:0}
+.ab-f1-main{position:absolute;left:96px;top:50%;transform:translateY(-50%);width:520px;display:flex;flex-direction:column;gap:24px}
+.ab-f1-main .ab-w520{max-width:520px}
+.ab-f1-side{position:absolute;right:96px;bottom:96px;width:520px;max-width:none;padding-right:160px}
+
+/* folds 2–4: overline, heading, body — left column, vertically centred */
+.ab-fold{left:96px;top:50%;transform:translateY(-50%);width:420px;display:flex;flex-direction:column;gap:16px}
+
+/* fold 5: four values around the mark, label under it */
+.ab-values{inset:0}
+.ab-values-label{position:absolute;left:50%;top:calc(50% + 152px);transform:translateX(-50%);color:var(--text-tertiary);white-space:nowrap}
+.ab-val{position:absolute;width:260px;margin-left:-130px;display:flex;flex-direction:column;gap:8px;text-align:center}
+.ab-val-h{font-weight:600;font-size:32px;line-height:40px;letter-spacing:-.5px;color:var(--ab-fg,var(--text-primary))}
+.ab-val-s{font-weight:500;font-size:20px;line-height:28px;color:var(--text-tertiary)}
+.ab-val--tl{left:calc(50% - 324px);top:calc(50% - 197px)}
+.ab-val--tr{left:calc(50% + 321px);top:calc(50% - 197px)}
+.ab-val--bl{left:calc(50% - 324px);top:calc(50% + 171px)}
+.ab-val--br{left:calc(50% + 321px);top:calc(50% + 171px)}
+.nav a[aria-current="page"]{text-decoration:underline;text-underline-offset:6px}
+[data-ab-copy]:not([data-ab-copy="1"]){opacity:0;visibility:hidden}   /* until about-copy.js takes over */

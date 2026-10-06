@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Us — Ali &amp; Sugow Advocates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/text-animations.css">
+<link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+
+<header class="site-header is-top" id="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html" aria-label="Ali &amp; Sugow, home">
+      <img alt="" src="assets/logomark.png">
+      <span class="logotype">ALI <i>|</i> SUGOW</span>
+    </a>
+    <nav class="nav t-label" aria-label="Main">
+      <a href="#" data-stub>Our Expertise</a>
+      <a href="about.html" aria-current="page">About Us</a>
+      <a href="#" data-stub>People</a>
+      <a class="pill" href="#contact">Work With Us</a>
+    </nav>
+    <button class="menu-btn t-label" id="menu-btn" aria-expanded="false" aria-controls="menu-panel">Menu</button>
+  </div>
+  <div class="menu-panel t-label" id="menu-panel" hidden>
+    <a href="#" data-stub>Our Expertise</a>
+    <a href="about.html" aria-current="page">About Us</a>
+    <a href="#" data-stub>People</a>
+    <a href="#contact">Work With Us</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- About hero: five folds over one pinned, scroll-driven canvas (js/animations/about-canvas.js).
+       Copy for each fold sits in the pinned stage and fades fold to fold with scroll (js/text-animations/about-copy.js). -->
+  <section class="ab-hero" id="ab-hero" aria-label="About us">
+    <div class="ab-stick">
+      <canvas id="ab-canvas" aria-hidden="true"></canvas>
+
+      <!-- fold 1: who we are -->
+      <div class="ab-copy ab-f1" data-ab-copy="1">
+        <div class="ab-f1-main">
+          <h1 class="ab-h1">An advisory firm providing legal and business solutions.</h1>
+          <p class="ab-body ab-w520">We commit to providing clients with the right solutions that speak to their needs in a timely and efficient manner, focusing on what matters to them. In doing so, we support individuals and businesses to have a positive impact in their communities.</p>
+        </div>
+        <p class="ab-body ab-f1-side">We rely on our networks, both locally and regionally, to solve the right problem, in the right way, and from the same place.</p>
+      </div>
+
+      <!-- fold 2 -->
+      <div class="ab-copy ab-fold" data-ab-copy="2">
+        <p class="t-overline ab-over">Approach to service</p>
+        <h2 class="ab-h3">Clear and direct guidance, delivered in time.</h2>
+        <p class="ab-body">We provide clear and direct guidance, and we value responsiveness and commercial awareness above all.</p>
+        <p class="ab-body ab-copy-part" data-ab-copy="2b">We help clients identify actual rather than perceived challenges. And we are impact-driven, which is why we view our clients as long-term partners.</p>
+      </div>
+
+      <!-- fold 3 -->
+      <div class="ab-copy ab-fold" data-ab-copy="3">
+        <p class="t-overline ab-over">Vision &amp; purpose</p>
+        <h2 class="ab-h3">Advisers of choice for people making a positive impact.</h2>
+        <p class="ab-body">We identify with our clients' mission and help them reach the outcomes they are working towards — understanding their industries, anticipating their challenges, and looking past the immediate result to the bigger picture.</p>
+        <p class="ab-body">We measure our success not by the number of clients we serve, but by the depth and quality of the relationships we build.</p>
+      </div>
+
+      <!-- fold 4 -->
+      <div class="ab-copy ab-fold" data-ab-copy="4">
+        <p class="t-overline ab-over">Experience</p>
+        <h2 class="ab-h3">Diverse backgrounds, one shared view of work.</h2>
+        <p class="ab-body">We have been involved in complex commercial transactions as well as macro-level policy work. Our professionals bring together diverse backgrounds, and that range is what informs how we advise.</p>
+      </div>
+
+      <!-- fold 5: values around the mark -->
+      <div class="ab-copy ab-values" data-ab-copy="5">
+        <h2 class="t-overline ab-values-label">Our Values</h2>
+        <div class="ab-val ab-val--tl"><p class="ab-val-h">Transparency</p><p class="ab-val-s">to plan with certainty</p></div>
+        <div class="ab-val ab-val--tr"><p class="ab-val-h">Responsiveness</p><p class="ab-val-s">to act in time</p></div>
+        <div class="ab-val ab-val--bl"><p class="ab-val-h">Empathy</p><p class="ab-val-s">to advise on your reality</p></div>
+        <div class="ab-val ab-val--br"><p class="ab-val-h">Agility</p><p class="ab-val-s">to move when things do.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Get in touch -->
+  <section class="touch" id="contact" aria-label="Get in touch">
+    <div class="touch-inner">
+      <h2 class="t-h1">Not sure if it is a legal problem or a business one?</h2>
+      <p class="t-body" id="touch-body">Most of the time it is both. Tell us the situation and we will tell you where you stand.</p>
+    </div>
+    <canvas class="touch-line" id="touch-line" aria-hidden="true"></canvas>
+    <div class="mag-wrap"><a class="mag t-label" id="mag" href="#" data-stub><span class="mag-label">Start a<br>conversation</span></a></div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="foot">
+    <div class="foot-top">
+      <p class="mission">Empowering clients to drive positive change.</p>
+      <div class="foot-right">
+        <nav class="foot-menu t-label" aria-label="Footer">
+          <a href="#" data-stub>Services</a>
+          <a href="about.html">About Us</a>
+          <a href="#" data-stub>People</a>
+          <a href="#contact">Work With Us</a>
+        </nav>
+        <address class="contact" style="font-style:normal">
+          <span>4th Ngong Avenue, 19th Floor, 4th Avenue Towers, Upperhill, Nairobi, KE</span>
+          <span>info@alisugow.law</span>
+          <span>+254 20 55466</span>
+        </address>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p class="big" id="big"><span>Ali &amp; Sugow Advocates LLP</span></p>
+      <div class="foot-links t-label">
+        <a href="#" data-stub>LinkedIn</a>
+        <a href="#" data-stub>Privacy Policy</a>
+        <span>2026</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="js/core.js"></script>
+<!-- text animations -->
+<script src="js/text-animations/slot-hover.js"></script>
+<script src="js/text-animations/footer-name.js"></script>
+<script src="js/text-animations/about-copy.js"></script>
+<!-- other animations -->
+<script src="js/animations/about-geometry.js"></script>
+<script src="js/animations/about-canvas.js"></script>
+<script src="js/animations/header.js"></script>
+<script src="js/animations/floating-button.js"></script>
+</body>
+</html>
