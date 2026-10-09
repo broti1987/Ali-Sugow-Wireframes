@@ -15,17 +15,17 @@
 .scroll-hint .wave-line{width:1px;height:76px}
 .hint-dot{width:4px;height:4px;border-radius:50%;background:currentColor;flex:none}
 /* Figma "Hero Animation": a vertical rule down the middle of the top fold, meeting the first discipline's rule */
-.ex-hero-rule{position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--border-strong);pointer-events:none}
+.ex-hero-rule{position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--border-strong);pointer-events:none;will-change:transform}   /* follows the cursor a little (expertise-waves.js) */
 
 .area-menu{position:relative;width:min(619px,calc(100vw - 712px));flex:none;background:var(--page)}   /* sits over the centre rule */
 .area-menu ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:40px}
-.area-menu a{display:flex;align-items:center;gap:8px;height:16px;line-height:16px;font-weight:500;font-size:16px;letter-spacing:.8px;color:var(--text-tertiary);transition:color .2s ease}
-/* the dot only shows on hover; the line runs straight until hovered, then carries a wave */
-.am-dot{width:4px;height:4px;border-radius:50%;background:currentColor;flex:none;margin-right:4px;opacity:0;transform:scale(.4);transition:opacity .25s ease,transform .25s ease}
+.area-menu a{display:flex;align-items:center;gap:8px;height:16px;line-height:16px;font-weight:600;font-size:16px;letter-spacing:.8px;color:var(--text-tertiary);transition:color .2s ease}
+/* number sits top-aligned before the name, like a superscript */
+.am-num{align-self:flex-start;width:16px;flex:none;font-size:10px;line-height:10px;letter-spacing:.5px}
 .am-label{white-space:nowrap}
+/* the line runs straight until hovered, then carries a wave near its start */
 .am-line{flex:1;height:1px;color:var(--surface-placeholder);transition:color .2s ease}
 .area-menu a:hover,.area-menu a:focus-visible{color:var(--text-primary)}
-.area-menu a:hover .am-dot,.area-menu a:focus-visible .am-dot{opacity:1;transform:none}
 .area-menu a:hover .am-line,.area-menu a:focus-visible .am-line{color:var(--text-primary)}
 
 /* ---------- the six disciplines ---------- */

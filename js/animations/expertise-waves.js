@@ -4,6 +4,7 @@
      hint  the scroll hint under the hero copy: a slow wave towards its dot end only
      menu  hero index lines: straight at rest; on hover a small wave grows in near the start of the
            line and runs (about the size of the cursor ripple on the other pages)
+     (also: the centre rule in the top fold follows the cursor left/right, straight)
      rule  the rule above each discipline: the same small wave, settling in just after the dot as the
            block scrolls into view. Hovering the block sets it moving and shifts it along the line
            towards the cursor; leaving brings it back to the dot and holds it
@@ -72,9 +73,32 @@
   });
 
   var t0=performance.now(), prev=t0;
+  /* ---------- the centre rule in the top fold: follows the cursor left/right within REACH,
+     staying straight (as the vertical line on the About page does) ---------- */
+  var hero=document.querySelector(".ex-hero"), rule=document.querySelector(".ex-hero-rule");
+  var REACH=88, FOLLOW=0.07, OFF=0, lastOff=null, MX=null, inHero=false;
+  if(hero){
+    window.addEventListener("pointermove", function(e){
+      if(e.pointerType && e.pointerType!=="mouse") return;
+      var r=hero.getBoundingClientRect();
+      MX=e.clientX-(r.left+r.width/2);
+      inHero = e.clientY>=r.top && e.clientY<=r.bottom;
+    }, {passive:true});
+    document.addEventListener("pointerleave", function(){ inHero=false; });
+    window.addEventListener("blur", function(){ inHero=false; });
+  }
+  function follow(){
+    if(!rule) return;
+    var target=(!reduce && inHero && MX!==null) ? REACH*Math.tanh(MX/REACH) : 0;
+    OFF+=(target-OFF)*FOLLOW;
+    var o=Math.round(OFF*10)/10;
+    if(o!==lastOff){ rule.style.transform="translateX("+o+"px)"; lastOff=o; }
+  }
+
   function frame(now){
     var dt=Math.min(0.05,(now-prev)/1000); prev=now;
     var vh=window.innerHeight;
+    follow();
     waves.forEach(function(w){
       var k=w.k;
       if(w.kind==="hint"){
