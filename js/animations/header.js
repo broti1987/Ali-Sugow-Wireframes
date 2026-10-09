@@ -6,10 +6,12 @@
   var reduce=AS.reduce, clamp01=AS.clamp01, smooth=AS.smooth;
 
   var header=document.getElementById("site-header"), footerEl=document.querySelector(".site-footer");
+  var staticLogo = header.getAttribute("data-logotype")==="static";
   var lastTop=null, lastDark=null, lastGone=null;
   function update(){
     var vh=window.innerHeight;
-    var isTop = window.scrollY < vh*0.2, isDark = AS.state.groundDark;
+    /* pages that mark the header data-logotype="static" always show the logotype (no scroll-in) */
+    var isTop = !staticLogo && window.scrollY < vh*0.2, isDark = AS.state.groundDark;
     var isGone = footerEl.getBoundingClientRect().top < vh*0.85;
     if(isTop!==lastTop){ header.classList.toggle("is-top", isTop); lastTop=isTop; }
     if(isDark!==lastDark){ header.classList.toggle("is-dark", isDark); lastDark=isDark; }

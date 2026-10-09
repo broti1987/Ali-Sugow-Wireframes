@@ -1,6 +1,6 @@
 # Ali & Sugow — website prototype
 
-Open `index.html` (homepage) or `about.html` (About Us) in a browser. No build step, no dependencies
+Open `index.html` (homepage), `about.html` (About Us) or `expertise.html` (Expertise) in a browser. No build step, no dependencies
 (Figtree loads from Google Fonts).
 
 ## Files
@@ -8,8 +8,10 @@ Open `index.html` (homepage) or `about.html` (About Us) in a browser. No build s
 ```
 index.html                         homepage markup
 about.html                         About Us markup
+expertise.html                     Expertise markup
 css/styles.css                     layout, type, sections (shared: header, get in touch, footer)
 css/about.css                      About Us page layout
+css/expertise.css                  Expertise page layout
 css/text-animations.css            styles for the text animations
 js/core.js                         shared helpers (window.AS), placeholder links, phone menu — load first
 js/text-animations/
@@ -31,6 +33,10 @@ js/animations/
                                    six layered triangles with a dot → seven turning triangles → broken
                                    construction lines → logomark outline; cursor ripple throughout
   about-geometry.js                About: shape data for about-canvas.js (Figma frame space, generated)
+  expertise-nav.js                 Expertise: side index that follows the six disciplines, case-study filters,
+                                   dark header over the case studies
+  expertise-waves.js               Expertise: wave-warped lines — scroll hint, hero index on hover, the rule
+                                   above each discipline (settles in on arrival, moves on hover)
 ```
 
 Each JS file is a self-contained IIFE and can be removed or replaced on its own. Tuning values

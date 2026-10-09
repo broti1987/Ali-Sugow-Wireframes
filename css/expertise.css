@@ -1,0 +1,94 @@
+/* Ali & Sugow — Expertise page (Figma "Expertise – Desktop", 43:87).
+   Shares css/styles.css (header, get in touch, footer). */
+
+/* ---------- hero: statement left, the six as an index running off the right edge ---------- */
+.ex-hero{position:relative;display:flex;justify-content:space-between;align-items:flex-start;gap:48px;height:680px;padding:192px 0 0 96px}
+.ex-hero-left{width:520px;display:flex;flex-direction:column;gap:32px}
+.ex-h1{font-weight:600;font-size:40px;line-height:1.4;letter-spacing:-1px;text-transform:capitalize;color:var(--text-primary)}
+.ex-lede{font-size:16px;line-height:24px;color:var(--text-secondary)}
+/* wave lines: an SVG path drawn by js/animations/expertise-waves.js */
+.wave-line{position:relative;display:block}
+.wave-line svg{position:absolute;left:0;top:0;overflow:visible}
+.wave-line path{fill:none;stroke:currentColor;stroke-width:1;vector-effect:non-scaling-stroke}
+/* scroll hint: a 76px line ending in a dot; the wave sits towards the dot end */
+.scroll-hint{position:relative;display:flex;flex-direction:column;align-items:center;width:4px;height:80px;margin-top:8px;color:var(--text-primary)}
+.scroll-hint .wave-line{width:1px;height:76px}
+.hint-dot{width:4px;height:4px;border-radius:50%;background:currentColor;flex:none}
+/* Figma "Hero Animation": a vertical rule down the middle of the top fold, meeting the first discipline's rule */
+.ex-hero-rule{position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--border-strong);pointer-events:none}
+
+.area-menu{position:relative;width:min(619px,calc(100vw - 712px));flex:none;background:var(--page)}   /* sits over the centre rule */
+.area-menu ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:40px}
+.area-menu a{display:flex;align-items:center;gap:8px;height:16px;line-height:16px;font-weight:500;font-size:16px;letter-spacing:.8px;color:var(--text-tertiary);transition:color .2s ease}
+/* the dot only shows on hover; the line runs straight until hovered, then carries a wave */
+.am-dot{width:4px;height:4px;border-radius:50%;background:currentColor;flex:none;margin-right:4px;opacity:0;transform:scale(.4);transition:opacity .25s ease,transform .25s ease}
+.am-label{white-space:nowrap}
+.am-line{flex:1;height:1px;color:var(--surface-placeholder);transition:color .2s ease}
+.area-menu a:hover,.area-menu a:focus-visible{color:var(--text-primary)}
+.area-menu a:hover .am-dot,.area-menu a:focus-visible .am-dot{opacity:1;transform:none}
+.area-menu a:hover .am-line,.area-menu a:focus-visible .am-line{color:var(--text-primary)}
+
+/* ---------- the six disciplines ---------- */
+.areas{display:flex;flex-direction:column}
+/* Figma: no top padding, 96 below, 80 between the rule and the text */
+.area{padding:0 0 96px 96px;scroll-margin-top:120px}
+.area-rule{position:relative;height:4px;display:flex;align-items:center;color:var(--text-primary)}
+.area-dot{width:4px;height:4px;border-radius:50%;background:currentColor;flex:none}
+.area-rule .wave-line{flex:1;height:1px}   /* runs off the right edge; a wave sits just after the dot */
+.area-in{display:flex;gap:24px;margin-top:80px;width:min(1248px,calc(100vw - 192px))}
+.area-main{width:420px;display:flex;flex-direction:column;gap:16px}
+.area-num{font-weight:500;font-size:24px;line-height:32px;letter-spacing:-.25px;color:var(--text-tertiary)}
+.area-name{font-weight:600;font-size:32px;line-height:40px;letter-spacing:-.5px;color:var(--text-primary)}
+.area-body{font-size:16px;line-height:24px;color:var(--text-secondary);max-width:360px}
+.area-services{width:420px;margin-top:60px;display:flex;flex-direction:column;gap:16px}
+.area-services-h{color:var(--text-primary)}
+.tags{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.tag{display:inline-flex;align-items:center;height:28px;padding:8px 12px;border:1px solid var(--border-strong);border-radius:9999px;font-weight:500;font-size:10px;line-height:10px;letter-spacing:.8px;color:var(--text-secondary)}
+
+/* side index (Figma "Area Menu – Small"): dots in a right-hand column; the current discipline shows
+   its name to the left of its dot */
+.side-menu{position:fixed;right:40px;top:50%;transform:translateY(-50%);z-index:40;width:150px;display:flex;flex-direction:column;align-items:flex-end;gap:20px;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s}
+.side-menu.is-on{opacity:1;visibility:visible}
+.side-menu a{position:relative;display:flex;align-items:center;justify-content:flex-end;gap:8px;height:4px;color:var(--text-tertiary);font-weight:600;font-size:12px;letter-spacing:.6px}
+.side-menu a.is-current{height:12px;color:var(--text-primary)}
+.sm-dot{width:4px;height:4px;border-radius:50%;background:currentColor;flex:none}
+.sm-label{position:absolute;right:12px;top:50%;line-height:12px;white-space:nowrap;opacity:0;transform:translate(6px,-50%);transition:opacity .3s ease,transform .3s ease;pointer-events:none}
+.side-menu a.is-current .sm-label,.side-menu a:hover .sm-label{opacity:1;transform:translate(0,-50%)}
+.side-menu a:hover{color:var(--text-primary)}
+@media (max-width:1100px){ .side-menu{display:none} }
+
+/* ---------- case studies (dark) ---------- */
+.cs{background:var(--surface-inverse);color:var(--text-inverse)}
+.cs-in{width:min(1270px,calc(100vw - 170px));margin:0 auto;padding:96px 0}
+.cs-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.cs-h{font-weight:600;font-size:32px;line-height:40px;letter-spacing:-.5px}
+.cs-filters{display:flex;gap:10px}
+.cs-filter{position:relative}
+.cs-filter > button{width:200px;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;border:1px solid rgba(255,255,255,.45);border-radius:9999px;color:var(--text-inverse);transition:border-color .2s ease}
+.cs-filter > button:hover,.cs-filter > button[aria-expanded="true"]{border-color:#fff}
+.cs-filter > button svg{transition:transform .2s ease}
+.cs-filter > button[aria-expanded="true"] svg{transform:rotate(180deg)}
+.cs-filter-label{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:130px}
+.cs-options{position:absolute;left:0;top:68px;z-index:5;width:100%;max-height:min(360px,60vh);overflow:auto;overscroll-behavior:contain;list-style:none;margin:0;padding:8px;background:#262626;border:1px solid rgba(255,255,255,.18);border-radius:20px}
+.cs-options button{display:block;width:100%;text-align:left;padding:12px 14px;border-radius:12px;line-height:1.35;white-space:normal;color:rgba(255,255,255,.7)}
+.cs-options button:hover,.cs-options button[aria-selected="true"]{background:rgba(255,255,255,.08);color:#fff}
+.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px 30px;margin-top:50px}
+/* Figma card: inverse fill, border/strong, 50 radius, 0 12 64 black shadow; year + title left, area + service right */
+.cs-card{position:relative;min-height:408px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 40px;background:var(--surface-inverse);border:1px solid var(--border-strong);border-radius:50px;box-shadow:0 12px 64px #000;color:inherit;transition:border-color .25s ease}
+.cs-card:hover,.cs-card:focus-visible{border-color:#fff}
+.cs-card[hidden]{display:none}
+.cs-left{width:316px;display:flex;flex-direction:column;gap:24px}
+.cs-year{font-weight:400;line-height:24px;color:var(--border-strong)}
+.cs-title{width:279px;font-weight:500;font-size:20px;line-height:32px;margin:0}
+.cs-meta{width:200px;display:flex;flex-direction:column;align-items:flex-end;text-align:right;gap:8px;line-height:24px;font-weight:400}
+.cs-area{color:#fff}
+.cs-service{color:var(--border-strong)}
+.cs-empty{margin-top:50px;color:var(--text-tertiary)}
+.cs-pages{display:flex;justify-content:center;align-items:center;gap:10px;margin-top:50px;font-size:16px;line-height:24px}
+.cs-pages a{color:var(--text-tertiary)}
+.cs-pages a[aria-current="page"]{color:#fff;font-weight:600}
+.cs-pages span{color:var(--text-tertiary)}
+.cs-pages .cs-next{display:flex;color:#fff}
+.cs :focus-visible{outline-color:#fff}
+
+.nav a[aria-current="page"]{text-decoration:underline;text-underline-offset:6px}
